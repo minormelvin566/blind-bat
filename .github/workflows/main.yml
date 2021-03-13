@@ -1,0 +1,35 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Deploy HTML Files to AppService - $CMST388-mminor17
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ -master ]
+  pull_request:
+    branches: [ main ]
+
+name: Deploy HTML Files to AppService - CMST388
+on:
+push:
+branches:
+-master
+jobs:
+build-and-deploy:
+runs-on: windows-latest
+steps:
+-uses: actions/checkout@master
+-name: Deploy to Azure Web App
+uses: azure/webapps-deploy@v1
+with: cmst388-mminor17
+slot-name: 'production'
+publish-profile: ${{secrets.AppServiceCMST388}}
+                  
+          
+          
+          
+          
+          
+          
+  
